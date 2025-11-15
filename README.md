@@ -33,7 +33,7 @@ import {
   shuffleArr,
   shuffleStr,
   sortArr
-} from './utils.js';
+} from 'jtilities';
 
 console.log(capitalize('heLlO')); // Hello
 console.log(randomElementFromArray([1, 2, 3, 4, 5])); // 3
@@ -44,7 +44,7 @@ console.log(sortArr([4, 2, 3, 1, 5])); // [ 1, 2, 3, 4, 5 ]
 ```
 
 ```js
-import { ellipsify } from './utils.js';
+import { ellipsify } from 'jtilities';
 
 const text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit';
 

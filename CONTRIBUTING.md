@@ -51,6 +51,6 @@ Want to [discuss](https://github.com/calebephrem/jtilities/discussions) an idea 
 ## 📢 Final Words
 
 Contributing is how open source grows — and **you’re a part of that**.  
-Let’s build cool things and make [jtilities](https://www.npmjs.com/package/zap-tcm) the go-to library for developers everywhere 🌍
+Let’s build cool things and make [jtilities](https://www.npmjs.com/package/jtilities) the go-to library for developers everywhere 🌍
 
 Thanks for being here. We appreciate you 💖
