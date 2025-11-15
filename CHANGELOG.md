@@ -4,13 +4,14 @@
 
 ### 🚀 Enhancements
 
-- Add more array functions
+- Add more array utility functions
   - unique
   - chunk
   - flatten
   - compact
   - intersection
   - difference
+- Add JSDoc comments to utility functions
 
 ## `v1.0.0`
 
