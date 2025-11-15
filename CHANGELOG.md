@@ -6,11 +6,12 @@
 
 - Add more string utility functions
 
-  - camelCase
-  - kebabCase
-  - slugify
-  - reverse
-  - pad
+  - `camelCase`
+  - `kebabCase`
+  - `slugify`
+  - `reverse`
+  - `pad`
+  - `snakeCase`
 
 ### 🛠️ Fixes
 
@@ -22,19 +23,19 @@
 
 - Add more object utility functions
 
-  - merge
-  - omit
-  - pick
-  - invert
-  - deepCompareObj
+  - `merge`
+  - `omit`
+  - `pick`
+  - `invert`
+  - `deepCompareObj`
 
 - Add more number utility functions
 
-  - clamp
-  - sumArr
-  - averageArr
-  - factorial
-  - isPrime
+  - `clamp`
+  - `sumArr`
+  - `averageArr`
+  - `factorial`
+  - `isPrime`
 
 ## `v1.1.0`
 
@@ -42,12 +43,12 @@
 
 - Add more array utility functions
 
-  - unique
-  - chunk
-  - flatten
-  - compact
-  - intersection
-  - difference
+  - `unique`
+  - `chunk`
+  - `flatten`
+  - `compact`
+  - `intersection`
+  - `difference`
 
 - Add JSDoc comments to utility functions
 

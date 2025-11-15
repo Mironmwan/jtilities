@@ -517,3 +517,21 @@ export function pad(str, length, char = ' ') {
   const rightPad = padLength - leftPad;
   return char.repeat(leftPad) + str + char.repeat(rightPad);
 }
+
+/**
+ * Converts a string to snake_case.
+ * @param {string} str - The string to convert.
+ * @returns {string|undefined} snake_case string, or undefined if invalid.
+ */
+export function snakeCase(str) {
+  if (typeof str !== 'string') {
+    console.error(`Error: ${str} is not a string`);
+    return;
+  }
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/[\s\-]+/g, '_')
+    .replace(/[^a-z0-9_]/g, '')
+    .replace(/_+/g, '_');
+}
