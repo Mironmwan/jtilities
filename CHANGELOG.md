@@ -1,16 +1,30 @@
 # Change Log
 
+## `v1.2.0`
+
+### 🚀 Enhancements
+
+- Add more object utility functions
+
+  - merge
+  - omit
+  - pick
+  - invert
+  - deepCompareObj
+
 ## `v1.1.0`
 
 ### 🚀 Enhancements
 
 - Add more array utility functions
+
   - unique
   - chunk
   - flatten
   - compact
   - intersection
   - difference
+
 - Add JSDoc comments to utility functions
 
 ## `v1.0.0`

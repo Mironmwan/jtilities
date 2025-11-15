@@ -226,3 +226,122 @@ export function difference(arr1, arr2) {
   const set2 = new Set(arr2);
   return arr1.filter((item) => !set2.has(item));
 }
+
+/**
+ * Shallow or recursive merge of two objects.
+ * @param {Object} obj1 - Target object.
+ * @param {Object} obj2 - Source object.
+ * @param {boolean} [deep=false] - Whether to perform deep merge.
+ * @returns {Object} Merged object.
+ */
+export function merge(obj1, obj2, deep = false) {
+  if (!isObj(obj1) || !isObj(obj2)) {
+    console.error('Error: both parameters must be plain objects');
+    return {};
+  }
+  const result = { ...obj1 };
+  for (const key in obj2) {
+    if (deep && isObj(obj2[key])) {
+      result[key] = merge(result[key] || {}, obj2[key], true);
+    } else {
+      result[key] = obj2[key];
+    }
+  }
+  return result;
+}
+
+/**
+ * Returns a new object without specified keys.
+ * @param {Object} obj - Source object.
+ * @param {string[]} keys - Keys to omit.
+ * @returns {Object} New object without specified keys.
+ */
+export function omit(obj, keys) {
+  if (!isObj(obj) || !Array.isArray(keys)) {
+    console.error('Error: invalid parameters for omit');
+    return {};
+  }
+  const result = {};
+  for (const key in obj) {
+    if (!keys.includes(key)) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+
+/**
+ * Returns a new object with only specified keys.
+ * @param {Object} obj - Source object.
+ * @param {string[]} keys - Keys to pick.
+ * @returns {Object} New object with only specified keys.
+ */
+export function pick(obj, keys) {
+  if (!isObj(obj) || !Array.isArray(keys)) {
+    console.error('Error: invalid parameters for pick');
+    return {};
+  }
+  const result = {};
+  for (const key of keys) {
+    if (key in obj) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+
+/**
+ * Swaps keys and values of an object.
+ * @param {Object} obj - Source object.
+ * @returns {Object} New object with inverted keys and values.
+ */
+export function invert(obj) {
+  if (!isObj(obj)) {
+    console.error('Error: parameter must be a plain object');
+    return {};
+  }
+  const result = {};
+  for (const key in obj) {
+    result[obj[key]] = key;
+  }
+  return result;
+}
+
+/**
+ * Deeply compares two objects for equality.
+ * @param {Object} obj1 - First object.
+ * @param {Object} obj2 - Second object.
+ * @returns {boolean} True if objects are deeply equal, false otherwise.
+ */
+export function deepCompareObj(obj1, obj2) {
+  if (!isObj(obj1) || !isObj(obj2)) {
+    console.error('Error: both parameters must be plain objects');
+    return false;
+  }
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (const key of keys1) {
+    const val1 = obj1[key];
+    const val2 = obj2[key];
+
+    const areObjects = isObj(val1) && isObj(val2);
+    if (areObjects && !deepCompareObj(val1, val2)) {
+      return false;
+    } else if (!areObjects && val1 !== val2) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Helper: Checks if a value is a plain object.
+ * @param {*} param - Value to check.
+ * @returns {boolean} True if plain object.
+ */
+function isObj(param) {
+  return typeof param === 'object' && !Array.isArray(param) && param !== null;
+}
