@@ -12,6 +12,14 @@
   - invert
   - deepCompareObj
 
+- Add more number utility functions
+
+  - clamp
+  - sumArr
+  - averageArr
+  - factorial
+  - isPrime
+
 ## `v1.1.0`
 
 ### 🚀 Enhancements

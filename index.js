@@ -345,3 +345,85 @@ export function deepCompareObj(obj1, obj2) {
 function isObj(param) {
   return typeof param === 'object' && !Array.isArray(param) && param !== null;
 }
+
+/**
+ * Restricts a number within a given range.
+ * @param {number} num - The number to clamp.
+ * @param {number} min - Minimum allowed value.
+ * @param {number} max - Maximum allowed value.
+ * @returns {number|undefined} Clamped number, or undefined if invalid.
+ */
+export function clamp(num, min, max) {
+  if (typeof num !== 'number' || typeof min !== 'number' || typeof max !== 'number') {
+    console.error('Error: num, min, and max must be numbers');
+    return;
+  }
+  if (min > max) {
+    console.error('Error: min cannot be greater than max');
+    return;
+  }
+  return Math.min(Math.max(num, min), max);
+}
+
+/**
+ * Calculates the sum of numbers in an array.
+ * @param {number[]} arr - Array of numbers.
+ * @returns {number|undefined} Sum of array values, or undefined if invalid.
+ */
+export function sumArr(arr) {
+  if (!Array.isArray(arr) || arr.some(n => typeof n !== 'number')) {
+    console.error('Error: arr must be an array of numbers');
+    return;
+  }
+  return arr.reduce((acc, val) => acc + val, 0);
+}
+
+/**
+ * Calculates the average (mean) of numbers in an array.
+ * @param {number[]} arr - Array of numbers.
+ * @returns {number|undefined} Average of array values, or undefined if invalid.
+ */
+export function averageArr(arr) {
+  if (!Array.isArray(arr) || arr.length === 0 || arr.some(n => typeof n !== 'number')) {
+    console.error('Error: arr must be a non-empty array of numbers');
+    return;
+  }
+  return sumArr(arr) / arr.length;
+}
+
+/**
+ * Computes the factorial of a number.
+ * @param {number} n - Non-negative integer.
+ * @returns {number|undefined} Factorial of n, or undefined if invalid.
+ */
+export function factorial(n) {
+  if (typeof n !== 'number' || n < 0 || !Number.isInteger(n)) {
+    console.error('Error: n must be a non-negative integer');
+    return;
+  }
+  if (n === 0 || n === 1) return 1;
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+/**
+ * Checks if a number is prime.
+ * @param {number} n - Integer to check.
+ * @returns {boolean} True if prime, false otherwise.
+ */
+export function isPrime(n) {
+  if (typeof n !== 'number' || n <= 1 || !Number.isInteger(n)) {
+    console.error('Error: n must be an integer greater than 1');
+    return false;
+  }
+  if (n === 2) return true;
+  if (n % 2 === 0) return false;
+  const sqrt = Math.sqrt(n);
+  for (let i = 3; i <= sqrt; i += 2) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
